@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Урок 14</title>
+</head>
+<body>
+    <div id="app">
+        <div class="form">
+            <h1>Анкета путешественника</h1>
+            <div class="data">
+                <p>ФИО</p>
+                <div class="information">
+                    <input class="text" type="text" placeholder="Имя" v-model="name">
+                    <input class="text" type="text" placeholder="Фамилия" v-model="surname">
+                    <input class="text" type="text" placeholder="Отчество" v-model="patronymic">
+                </div>
+            </div>
+            <div class="countries">
+                <p>Страна:</p>
+                <select name="country" id="country" v-model="selected">
+                    <option>Швейцария</option>
+                    <option>США</option>
+                    <option>Австралия</option>
+                    <option>Канада</option>
+                    <option>ЮАР</option>
+                </select>
+            </div>
+            <div class="excursion">
+                <p>Экскурсия:</p>
+                <div>
+                    <input type="checkbox" id="excursion1" name="excursion1" value="Параплан" v-model="checked">
+                    <label for="excursion1">Параплан</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="excursion2" name="excursion2" value="Сафари" v-model="checked">
+                    <label for="excursion2">Сафари</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="excursion3" name="excursion3" value="Зиплайн" v-model="checked">
+                    <label for="excursion3">Зиплайн</label>
+                </div>
+            </div>
+            <div class="baggage">
+                <div>
+                    <fieldset>
+                        <legend>Багаж</legend>
+                        <input type="radio" id="baggage1" name="baggage1" value="10" v-model="radio">
+                        <label for="baggage1">10 кг</label>
+                        <input type="radio" id="baggage2" name="baggage2" value="20" v-model="radio">
+                        <label for="baggage2">20 кг</label>
+                        <input type="radio" id="baggage2" name="baggage2" value="30" v-model="radio">
+                        <label for="baggage2">30 кг</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="comment">
+                <p>Комментарий:</p>
+                <textarea name="comment" id="comment" cols="30" rows="10" v-model="textarea"></textarea>
+            </div>
+        </div>
+
+        <div class="summary">
+            <div class="title">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Circle-icons-plane.svg/768px-Circle-icons-plane.svg.png" alt="plane">
+                <h1>Boarding pass</h1>
+            </div>
+            <div class="flight-data">
+                <div class="name">
+                    <h2>Имя: {{ name }}</h2>
+                    <h2>Фамилия: {{ surname }} </h2>
+                    <h2>Отчество: {{ patronymic }}</h2>
+                </div>
+                <div class="details">
+                    <div class="tours">
+                        <h2>Куда: {{ selected }}</h2>
+                    </div>
+                    <div class="trip">
+                        <h2>Экскурсия: {{ checked.join(", ") }}</h2>
+                    </div>
+                    <div class="bag">
+                        <h2>Багаж: {{ radio }} кг</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="commentary">
+                <p>Комментарий:</p>
+                <div>{{ textarea }}</div>
+            </div>
+        </div>
+    </div> 
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
